@@ -1,0 +1,47 @@
+<template>
+
+  <div style="display: flex;">
+
+    <div class="slds-dueling-list__column">
+
+
+      <span class="slds-form-element__label">{fieldName}</span>
+      <!--  -->
+      <div class="slds-dueling-list__options items" role="application"   
+           data-id={uuid} ondragenter={handleOnDragEnterDummy} ondragleave={handleOnDragLeaveDummy} ondragover={handleOnDragOverDummy} ondrop={handleOnDropParent}    >
+        <ul aria-describedby="option-drag-label" aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" 
+            data-id={uuid} role="listbox" tabindex="0"  >
+  
+          <template for:each={items} for:item="item">
+            <!--  class={listBoxClass}  id={item.id} -->
+            <li class={item.class} data-class={item.class} draggable="true" role="option" key={item.id} tabindex="-1" 
+                onclick={handleListClick} ondragstart={handleOnDragStart} ondblclick={handleOnDoubleClick}
+                data-id={item.id} >
+                <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline" draggable="true" role="option" aria-selected={item.selected} 
+                     data-id={item.id}>
+                <span class="slds-media__body" 
+                      data-id={item.id}>
+                      <!-- id={item.id}  {item.sort} : -->
+                  <span class="slds-truncate" data-id={item.id}>{item.value}</span>
+                  <div style="font-size:8px;" class="slds-text-body_small" data-id={item.id}>{item.byline}</div>
+                </span>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+  
+    </div>
+  
+    <template if:true={showUpDown}>
+      <div class="slds-dueling-list__column">
+
+        <lightning-button-icon icon-name="utility:up" size="large"  variant="bare" alternative-text="Move Selection Up" title="Move Selection Up" onclick={handleReorderItemUp}></lightning-button-icon>
+        <lightning-button-icon icon-name="utility:down" size="large"  variant="bare" alternative-text="Move Selection Down" title="Move Selection Down" onclick={handleReorderItemDown}></lightning-button-icon>
+
+      </div>
+    </template>
+  </div>
+
+
+</template>

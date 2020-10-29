@@ -1,0 +1,28 @@
+<template>
+
+  <div class="slds-form-element" role="group" aria-labelledby="picklist-group-label">
+    <span id="picklist-group-label" class="slds-form-element__label slds-form-element__legend">Select Options</span>
+    <div class="slds-form-element__control">
+      <div class="slds-dueling-list">
+        <div class="slds-assistive-text" id="drag-live-region" aria-live="assertive"></div>
+        <div class="slds-assistive-text" id="option-drag-label">Press space bar when on an item, to move it within the list. CMD plus left and right arrow keys, to move items between lists.</div>
+        <c-ordered-list class="left" field-name={fieldName} values={leftValues_} position="left" 
+                        ondragcomplete={handleDragCompleteLeft} onmoveitems={moveLeftToRight}></c-ordered-list>
+      
+        <div class="slds-dueling-list__column">
+
+          <lightning-button-icon icon-name="utility:left" size="large"  variant="bare" alternative-text="Move Selection Left" title="Move Selection Left" 
+                                 onclick={moveRightToLeft}></lightning-button-icon>
+          <lightning-button-icon icon-name="utility:right" size="large" variant="bare" alternative-text="Move Selection Right" title="Move Selection Right" 
+                                 onclick={moveLeftToRight}></lightning-button-icon>
+  
+        </div>
+
+        <c-ordered-list class="right" field-name={selectedName} position="right" show-up-down="true" values={rightValues_} 
+                        ondragcomplete={handleDragCompleteRight} onmoveitems={moveRightToLeft}></c-ordered-list>
+            
+      </div>
+    </div>
+  </div>
+    
+</template>
