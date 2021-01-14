@@ -2,6 +2,8 @@
 
 A LWC version of the Duelling Picklists. But better! Double click to move! Drag to move! 
 
+<img src="https://gfycat.com/whirlwindhopefuldarwinsfox" width="300">
+
 ## How to set up the project (advice from Salesforce)
 
 The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
